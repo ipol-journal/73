@@ -27,7 +27,7 @@ im = PIL.Image.open("psf.pgm")
 width = 600
 height = 600
 # interpolate it by neareset neighbor
-im = im.resize((width, height), "nearest") 
+im = im.resize((width, height)) 
 im.save("psf.png")
 
 im = PIL.Image.open("det_out.ppm")
