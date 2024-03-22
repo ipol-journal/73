@@ -17,10 +17,8 @@ args = ap.parse_args()
 im = cv2.imread("input_0.png")
 img = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 cv2.imwrite("input_0.pgm",img)
-
-img = PIL.Image.open("pattern_noise.pgm")
     
-p = subprocess.run(['psf_estim', '-p', 'pattern_noise.pgm',
+p = subprocess.run(['psf_estim', '-p', '/workdir/bin/pattern_noise.pgm',
                     '-s', str(args.s), '-k', str(args.k), '-d', 'det_out.ppm', '-t', str(args.t),
                     '-o', 'psf.pgm', 'input_0.pgm', 'psf.txt'])
 
