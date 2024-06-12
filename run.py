@@ -35,7 +35,7 @@ try:
     im = PIL.Image.open("det_out.ppm")
     im.save("det_out.png")
 
-except RuntimeError:
+except Exception as e:    
     with open('stdout.txt', 'r') as file:
         stdout_text = file.read()
     if "No pattern was detected." in stdout_text:
