@@ -38,14 +38,14 @@ try:
 except Exception as e:    
     with open('stdout.txt', 'r') as file:
         stdout_text = file.read()
-    if "No pattern was detected." in stdout_text:
+    if "No pattern was detected." in stdout_text.strip():
         with open('demo_failure.txt', 'w') as f:
             f.write('Pattern Not Found. Are you sure that there is a pattern in the image? It may have not been detected if\
                             the pattern covers only a small part of the image. Crop the image so that the pattern covers at\
                             least half of the image and re-run. Otherwise, upload an image containing a pattern.')
             sys.exit(0)
 
-    elif "More than one pattern was detected." in stdout_text:
+    elif "More than one pattern was detected." in stdout_text.strip():
         with open('demo_failure.txt', 'w') as f:
             f.write('More than one pattern was detected. Crop the image surounding the\
                         desired pattern and re-run.')
