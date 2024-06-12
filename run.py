@@ -19,11 +19,11 @@ im = cv2.imread("input_0.png")
 img = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 cv2.imwrite("input_0.pgm",img)
     
-p = subprocess.run(['psf_estim', '-p', '/workdir/bin/pattern_noise.pgm',
-                    '-s', str(args.s), '-k', str(args.k), '-d', 'det_out.ppm', '-t', str(args.t),
-                    '-o', 'psf.pgm', 'input_0.pgm', 'psf.txt'])
 
 try:
+    p = subprocess.run(['psf_estim', '-p', '/workdir/bin/pattern_noise.pgm',
+                    '-s', str(args.s), '-k', str(args.k), '-d', 'det_out.ppm', '-t', str(args.t),
+                    '-o', 'psf.pgm', 'input_0.pgm', 'psf.txt'])
     im = PIL.Image.open("psf.pgm")
     # re adjust width and height to avoid visualization interpolation
     width = 600
